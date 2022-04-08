@@ -9,7 +9,7 @@ class SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-      color: Color(0xFF140E0E),
+      color: const Color(0xFF140E0E),
       child: Stack(
         children: [
           Align(
@@ -26,10 +26,10 @@ class SplashPage extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(
-                  height: context.heightTransformer(reducedBy: 85),
+                  height: context.heightTransformer(reducedBy: 82),
                 ),
                 Image.asset('assets/images/logo.png'),
-                const SizedBox(height: 60),
+                const SizedBox(height: 70),
                 VakinhaButton(
                   label: 'ACESSAR',
                   onPressed: () {
