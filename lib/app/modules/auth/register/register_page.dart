@@ -22,6 +22,14 @@ class _RegisterPageState
   final _passwordEC = TextEditingController();
 
   @override
+  void dispose() {
+    _nameEC.dispose();
+    _emailEC.dispose();
+    _passwordEC.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: VakinhaAppbar(elevation: 0),
@@ -83,7 +91,10 @@ class _RegisterPageState
                       final formValid =
                           _formKey.currentState?.validate() ?? false;
                       if (formValid) {
-                        //
+                        controller.resgister(
+                            name: _nameEC.text,
+                            email: _emailEC.text,
+                            password: _passwordEC.text);
                       }
                     },
                     width: context.width,

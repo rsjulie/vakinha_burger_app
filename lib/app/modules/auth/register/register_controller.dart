@@ -1,6 +1,8 @@
 import 'dart:developer';
 
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:vakinha_burger/app/core/constants/constants.dart';
 import 'package:vakinha_burger/app/core/mixins/loader_mixin.dart';
 import 'package:vakinha_burger/app/core/mixins/messages_mixin.dart';
 import 'package:vakinha_burger/app/core/restClient/rest_client.dart';
@@ -29,9 +31,9 @@ class RegisterController extends GetxController
       required String password}) async {
     try {
       _loading.toggle();
-      final _userModel = await _authRepository.register(name, email, password);
+      final _userLogged = await _authRepository.register(name, email, password);
       _loading.toggle();
-      //TODO: votar para pagina inicial
+      GetStorage().write(Constants.USER_KEY, _userLogged.id);
       Get.back();
       _message(MessageModel(
         title: 'Sucesso',

@@ -3,20 +3,17 @@ import 'package:vakinha_burger/app/modules/auth/login/login_bindings.dart';
 import 'package:vakinha_burger/app/modules/auth/login/login_page.dart';
 import 'package:vakinha_burger/app/modules/auth/register/register_bindings.dart';
 import 'package:vakinha_burger/app/modules/auth/register/register_page.dart';
+import 'package:vakinha_burger/app/modules/home/home_bindings.dart';
+import 'package:vakinha_burger/app/modules/home/home_page.dart';
 
-class AuthRouters {
-  AuthRouters._();
+class HomeRouters {
+  HomeRouters._();
 
   static final routers = <GetPage>[
     GetPage(
-      name: '/auth/login',
-      page: () => const LoginPage(),
-      binding: LoginBindings(),
+      name: '/home',
+      page: () => const HomePage(),
+      binding: HomeBindings(),
     ),
-    GetPage(
-      name: '/auth/register',
-      binding: RegisterBindings(),
-      page: () => const RegisterPage(),
-    )
   ];
 }
