@@ -10,12 +10,24 @@ class HomePage extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: VakinhaAppbar(),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   onTap: (value) {},
-      //   currentIndex: 0,
-      //   items: [],
-      // ),
-      body: Container(),
+      bottomNavigationBar: Obx(() {
+        return BottomNavigationBar(
+          onTap: (value) => controller.tabIndex = value,
+          currentIndex: controller.tabIndex,
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Produtos'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.shopping_cart), label: 'Carrinho'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.exit_to_app), label: 'Sair'),
+          ],
+        );
+      }),
+      body: Navigator(
+        initialRoute: '/menu',
+        key: Get.nestedKey(HomeController.NAVIGATOR_KEY),
+        onGenerateRoute: controller.onGeneratedRoouter,
+      ),
     );
   }
 }
