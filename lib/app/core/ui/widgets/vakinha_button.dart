@@ -27,7 +27,8 @@ class VakinhaButton extends StatelessWidget {
           label,
           style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
         ),
-        style: ElevatedButton.styleFrom(shape: StadiumBorder(), primary: color),
+        style: ElevatedButton.styleFrom(
+            shape: const StadiumBorder(), primary: color),
       ),
     );
   }
