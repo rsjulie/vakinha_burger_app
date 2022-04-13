@@ -54,7 +54,7 @@ class ProductDetailPage extends GetView<ProductDetailController> {
                           return PlusMinusBox(
                             minusCallback: controller.removeProduct,
                             plusCallback: controller.addProduct,
-                            quantity: 1,
+                            quantity: controller.quantity,
                             price: controller.product.price,
                           );
                         }),
@@ -65,16 +65,20 @@ class ProductDetailPage extends GetView<ProductDetailController> {
                             'Total',
                             style: VakinhaUI.textBold,
                           ),
-                          trailing: Text(
-                            '${controller.totalPrice.toStringAsFixed(2)}',
-                            style: VakinhaUI.textBold,
-                          ),
+                          trailing: Obx(() {
+                            return Text(
+                              controller.totalPrice.toStringAsFixed(2),
+                              style: VakinhaUI.textBold,
+                            );
+                          }),
                         ),
                         const SizedBox(height: 20),
                         Center(
                             child: VakinhaButton(
-                          label: 'ADICIONAR',
-                          onPressed: () {},
+                          label: controller.alreadyAdded
+                              ? 'ATUALIZAR'
+                              : 'ADICIONAR',
+                          onPressed: controller.addProductInShoppingCart,
                           width: context.widthTransformer(
                             reducedBy: 10,
                           ),
