@@ -3,7 +3,7 @@ import 'dart:convert';
 class OrderPixModel {
   String image;
   String code;
-  String totalValue;
+  double totalValue;
 
   OrderPixModel({
     required this.image,
@@ -31,4 +31,15 @@ class OrderPixModel {
 
   factory OrderPixModel.fromJson(String source) =>
       OrderPixModel.fromMap(json.decode(source));
+
+  OrderPixModel copyWith({
+    String? image,
+    String? code,
+    double? totalValue,
+  }) {
+    return OrderPixModel(
+        image: image ?? this.image,
+        code: code ?? this.code,
+        totalValue: totalValue ?? this.totalValue);
+  }
 }
