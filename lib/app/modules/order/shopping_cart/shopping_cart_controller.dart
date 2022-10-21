@@ -3,7 +3,6 @@ import 'package:vakinha_burger/app/core/services/auth_service.dart';
 import 'package:vakinha_burger/app/core/services/shopping_cart_service.dart';
 import 'package:vakinha_burger/app/models/order_model.dart';
 import 'package:vakinha_burger/app/models/shopping_cart_model.dart';
-import 'package:vakinha_burger/app/modules/home/home_controller.dart';
 import 'package:vakinha_burger/app/repositories/order/order_repository.dart';
 
 class ShoppingCartController extends GetxController {
@@ -53,7 +52,6 @@ class ShoppingCartController extends GetxController {
     var orderPix = await _orderRepository.createOrder(order);
     orderPix = orderPix.copyWith(totalValue: totalValue);
     clear();
-    Get.offNamed('/order/finished', arguments: orderPix);
-    Get.back(id: HomeController.NAVIGATOR_KEY);
+    Get.toNamed('/order/finished', arguments: orderPix);
   }
 }

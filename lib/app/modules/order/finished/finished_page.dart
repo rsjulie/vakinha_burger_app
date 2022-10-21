@@ -39,7 +39,7 @@ class FinishedPage extends StatelessWidget {
                     color: context.theme.primaryColorDark,
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 Container(
                   margin: const EdgeInsets.only(bottom: 20),
                   width: context.widthTransformer(reducedBy: 10),

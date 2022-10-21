@@ -161,7 +161,7 @@ class _CpfField extends GetView<ShoppingCartController> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         const SizedBox(
           height: 32,

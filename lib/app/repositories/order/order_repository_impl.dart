@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:vakinha_burger/app/core/restClient/rest_client.dart';
 import 'package:vakinha_burger/app/models/order_model.dart';
 import 'package:vakinha_burger/app/models/order_pix_model.dart';
